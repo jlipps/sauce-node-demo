@@ -11,10 +11,10 @@ var args = nopt(null, null, process.argv, 2);
 var allConfs = {
   'local': {
     processes: 2,
-    maxTests: false,
+    maxTests: 3,
     serviceName: 'local',
     caps: [
-      {browserName: "chrome", version: '', platform: "MAC", proxy: {proxyType: 'direct'}},
+      //{browserName: "chrome", version: '', platform: "MAC", proxy: {proxyType: 'direct'}},
       {browserName: "firefox", version: '', platform: "MAC", proxy: {proxyType: 'direct'}}
     ]
   },

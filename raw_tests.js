@@ -94,6 +94,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       }
     },
+
     'site has correct title': {
       topic: function() {
         var _this = this;
@@ -109,6 +110,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.equal(title, "Blog");
       }
     },
+
     'logged in visit at first shows no posts': {
       topic: function() {
         var cb = this.callback;
@@ -120,6 +122,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       }
     },
+
     'adding a valid entry redirects to entry page': {
       topic: function() {
         var cb = this.callback;
@@ -135,6 +138,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(url.search(/\/post\/\d/) > -1);
       }
     },
+
     'adding a valid entry shows entry title': {
       topic: function() {
         var cb = this.callback;
@@ -146,6 +150,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       }
     },
+
     'adding a valid entry shows entry text': {
       topic: function() {
         var cb = this.callback;
@@ -157,6 +162,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       }
     },
+
     'adding a valid entry shows success': {
       topic: function() {
         var cb = this.callback;
@@ -169,6 +175,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       }
     },
+
     'adding a valid entry when back to main page shows title': {
       topic: function() {
         var title = postFixture.title + " " + Math.random().toString();
@@ -186,6 +193,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       }
     },
+
     'adding valid entry when back to main page shows body': {
       topic: function() {
         var title = postFixture.title + " " + Math.random().toString();
@@ -201,6 +209,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       }
     },
+
     'adding entry with no title shows error': {
       topic: function() {
         var cb = this.callback;
@@ -213,6 +222,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       },
     },
+
     'adding entry with no body shows error': {
       topic: function() {
         var msg = "body required";
@@ -225,6 +235,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       }
     },
+
     'adding entry with short body shows error': {
       topic: function() {
         var msg = "body should be at least 10 characters long";
@@ -237,6 +248,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.ok(present);
       }
     },
+
     'viewing edit post shows correct title': {
       topic: function() {
         var cb = this.callback;
@@ -254,6 +266,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.equal(title, postFixture.title);
       }
     },
+
     'viewing edit post shows correct body': {
       topic: function() {
         var cb = this.callback;
@@ -271,6 +284,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.equal(body, postFixture.body);
       }
     },
+
     'editing post title shows new title': {
       topic: function() {
         var cb = this.callback;
@@ -297,6 +311,7 @@ exports.allTests = function(conf, cap, capText) {
         assert.equal(expected, value);
       }
     },
+
     'editing post body shows new body': {
       topic: function() {
         var cb = this.callback;
@@ -323,6 +338,8 @@ exports.allTests = function(conf, cap, capText) {
         assert.equal(expected, value);
       }
     }
+
   };
+
   return allTests;
 };
