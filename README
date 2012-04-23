@@ -1,0 +1,3 @@
+This is a demo app which shows how you can use Wd, Vows.js, and Sauce to have really great test coverage.
+
+Take a look at tests.js and raw_tests.js
