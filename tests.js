@@ -14,7 +14,22 @@ var allConfs = {
     maxTests: false,
     serviceName: 'local',
     caps: [
-      {browserName: "chrome", version: '', platform: "MAC", proxy: {proxyType: 'direct'}}
+      {browserName: "chrome", version: '', platform: "MAC", proxy: {proxyType: 'direct'}},
+      {browserName: "firefox", version: '', platform: "MAC", proxy: {proxyType: 'direct'}}
+    ]
+  },
+  'sauce': {
+    host: "ondemand.saucelabs.com",
+    port: 80,
+    username: process.env.SAUCE_USERNAME,
+    accessKey: process.env.SAUCE_ACCESS_KEY,
+    processes: 16,
+    maxTests: false,
+    serviceName: 'sauce',
+    caps: [
+      {browserName: "internet explorer", version: '8', platform: "XP", proxy: {proxyType: 'direct'}, 'selenium-version': '2.21.0'},
+      {browserName: "firefox", version: '10', platform: "Windows 2003", proxy: {proxyType: 'direct'}},
+      {browserName: "chrome", version: '', platform: "VISTA", proxy: {proxyType: 'direct'}}
     ]
   }
 };
