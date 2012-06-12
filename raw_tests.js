@@ -1,10 +1,9 @@
 var assert = require('assert'),
     _s = require('underscore.string'),
     Post = require('./models/post'),
-    wd = require('/Users/jlipps/Code/libs/wd');
+    wd = require('wd');
 
-var exports = module.exports = function RawTests() {
-};
+var exports = module.exports = function RawTests() {};
 
 exports.allTests = function(conf, cap, capText) {
 
@@ -29,9 +28,12 @@ exports.allTests = function(conf, cap, capText) {
       name = name.replace(capText, '');
       cap['name'] = name;
     }
+    clearUrl = 'http://' + site + '/clear_all'
     driver.init(cap, function() {
-      driver.get(url, function() {
-        cb(driver);
+      driver.get(clearUrl, function() {
+        driver.get(url, function() {
+          cb(driver);
+        });
       });
     });
   };
@@ -44,7 +46,7 @@ exports.allTests = function(conf, cap, capText) {
             driver.type(el, body, function() {
               clickCreateButton(driver, cb);
             });
-          })
+          });
         });
       });
     }, name);
@@ -69,7 +71,7 @@ exports.allTests = function(conf, cap, capText) {
   };
 
   var checkForTextAndQuit = function(driver, text, cb) {
-    driver.textPresent(text, function(err, present) {
+    driver.textPresent(text, 'body', function(err, present) {
       driver.quit(function() {
         cb(err, present);
       });

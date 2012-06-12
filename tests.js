@@ -11,25 +11,10 @@ var args = nopt(null, null, process.argv, 2);
 var allConfs = {
   'local': {
     processes: 2,
-    maxTests: 3,
+    maxTests: false,
     serviceName: 'local',
     caps: [
-      //{browserName: "chrome", version: '', platform: "MAC", proxy: {proxyType: 'direct'}},
-      {browserName: "firefox", version: '', platform: "MAC", proxy: {proxyType: 'direct'}}
-    ]
-  },
-  'sauce': {
-    host: "ondemand.saucelabs.com",
-    port: 80,
-    username: process.env.SAUCE_USERNAME,
-    accessKey: process.env.SAUCE_ACCESS_KEY,
-    processes: 25,
-    maxTests: false,
-    serviceName: 'sauce',
-    caps: [
-      {browserName: "internet explorer", version: '8', platform: "XP", proxy: {proxyType: 'direct'}, 'selenium-version': '2.21.0'},
-      {browserName: "firefox", version: '10', platform: "Windows 2003", proxy: {proxyType: 'direct'}},
-      {browserName: "chrome", version: '', platform: "VISTA", proxy: {proxyType: 'direct'}}
+      {browserName: "chrome", version: '', platform: "MAC", proxy: {proxyType: 'direct'}}
     ]
   }
 };
@@ -41,9 +26,6 @@ _.each(args, function(val, arg) {
     confs[arg] = allConfs[arg];
   }
 });
-
-// clear out database each test run
-Post.clearDb();
 
 // makeSuite takes a configuration and makes a batch of tests, splitting
 // up tests according to 'conf.processes'

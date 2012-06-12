@@ -16,4 +16,9 @@ module.exports = function(app){
       });
     });
   });
+
+  app.get('/clear_all', function(req, res) {
+    Post.clearDb();
+    res.redirect('/');
+  });
 };
