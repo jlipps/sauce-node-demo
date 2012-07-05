@@ -10,7 +10,7 @@ var args = nopt(null, null, process.argv, 2);
 // define different service configurations
 var allConfs = {
   'local': {
-    processes: 2,
+    processes: 4,
     maxTests: false,
     serviceName: 'local',
     caps: [
@@ -23,7 +23,7 @@ var allConfs = {
     port: 80,
     username: process.env.SAUCE_USERNAME,
     accessKey: process.env.SAUCE_ACCESS_KEY,
-    processes: 16,
+    processes: 23,
     maxTests: false,
     serviceName: 'sauce',
     caps: [
