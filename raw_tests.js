@@ -28,7 +28,7 @@ exports.allTests = function(conf, cap, capText) {
       name = name.replace(capText, '');
       cap['name'] = name;
     }
-    clearUrl = 'http://' + site + '/clear_all'
+    clearUrl = 'http://' + site + '/clear_all';
     driver.init(cap, function() {
       driver.get(url, function() {
         cb(driver);
@@ -168,7 +168,7 @@ exports.allTests = function(conf, cap, capText) {
     'adding a valid entry shows success': {
       topic: function() {
         var cb = this.callback;
-        var msg = "Successfully created the post."
+        var msg = "Successfully created the post.";
         navAndWritePost(postFixture.title, postFixture.body, function(driver) {
           checkForTextAndQuit(driver, msg, cb);
         }, this.context.name);
@@ -222,7 +222,7 @@ exports.allTests = function(conf, cap, capText) {
       },
       '': function(err, present) {
         assert.ok(present);
-      },
+      }
     },
 
     'adding entry with no body shows error': {
