@@ -1,7 +1,7 @@
 var assert = require('assert'),
     _s = require('underscore.string'),
     Post = require('./models/post'),
-    wd = require('wd');
+    wd = require('../libs/wd');
 
 var exports = module.exports = function RawTests() {};
 
@@ -30,8 +30,12 @@ exports.allTests = function(conf, cap, capText) {
     }
     clearUrl = 'http://' + site + '/clear_all';
     driver.init(cap, function() {
-      driver.get(url, function() {
-        cb(driver);
+      driver.setImplicitWaitTimeout(30, function() {
+        //driver.get(clearUrl, function() {
+          driver.get(url, function() {
+            cb(driver);
+          });
+        //});
       });
     });
   };
@@ -262,7 +266,7 @@ exports.allTests = function(conf, cap, capText) {
               });
             });
           });
-        });
+        }, this.context.name);
       },
       '': function(err, title) {
         assert.equal(title, postFixture.title);
@@ -280,7 +284,7 @@ exports.allTests = function(conf, cap, capText) {
               });
             });
           });
-        });
+        }, this.context.name);
       },
       '': function(err, body) {
         assert.equal(body, postFixture.body);
@@ -307,7 +311,7 @@ exports.allTests = function(conf, cap, capText) {
               });
             });
           });
-        });
+        }, this.context.name);
       },
       '': function(err, expected, value) {
         assert.equal(expected, value);
@@ -334,10 +338,42 @@ exports.allTests = function(conf, cap, capText) {
               });
             });
           });
-        });
+        }, this.context.name);
       },
       '': function(err, expected, value) {
         assert.equal(expected, value);
+      }
+    },
+
+    'clicking view full link shows post modal': {
+      topic: function() {
+        var cb = this.callback;
+        var title = postFixture.title + " " + Math.random().toString();
+        var body = postFixture.body + " " + Math.random().toString();
+        navAndWritePost(title, body, function(driver) {
+          driver.get('http://'+site, function() {
+            driver.waitForElement('link text', title, 10, function(err) {
+              driver.elementByLinkText(title, function(err, el) {
+                driver.getAttribute(el, 'data-post-id', function(err, postId) {
+                  var seeFullSel = 'seeFull_'+postId;
+                  driver.elementById(seeFullSel, function(err, el) {
+                    driver.clickElement(el, function(err) {
+                      var fumSel = 'fullExcerptModal_'+postId;
+                      driver.waitForVisible('id', fumSel, 10000, function(err) {
+                        driver.quit(function() {
+                          cb(err, typeof err == 'undefined');
+                        });
+                      });
+                    });
+                  });
+                });
+              });
+            });
+          });
+        }, this.context.name);
+      },
+      '': function(err, present) {
+        assert.ok(present);
       }
     }
 
