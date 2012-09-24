@@ -4,15 +4,25 @@ block content
   .post
     // title
     h2
-      = post.title
+      a(href='/post/'+post.id, data-post-id=post.id)= post.title
       a.edit(href='/post/' + post.id + '/edit') Edit
-    
+
     include ../messages
-    
+
     // dates
     p.date.created Created at #{post.createdAt}
     if post.updatedAt
       p.date.updated Updated at #{post.updatedAt}
-    
+
     // body
-    pre.body= post.body
+    p
+      = post.excerpt()
+      - var seeFullId = "seeFull_" + post.id;
+      a.seeFull(id=seeFullId, href='javascript:void(0);', onclick='return false;', data-post-id=post.id) View full entry
+
+    - var fumId = "fullExcerptModal_" + post.id;
+    .fullExcerptModal(id=fumId, style="display:none", data-post-id=post.id)
+      .excerptTitleCont
+        .excerptTitle= post.title
+        a.excerptClose(href='javascript:void(0);', onclick='return false;', data-post-id=post.id) Close
+      .excerpt!= post.body_nl2br()

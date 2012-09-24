@@ -27,8 +27,8 @@ var allConfs = {
     maxTests: false,
     serviceName: 'sauce',
     caps: [
-      {browserName: "internet explorer", version: '8', platform: "XP", proxy: {proxyType: 'direct'}, 'selenium-version': '2.21.0'},
-      {browserName: "firefox", version: '10', platform: "Windows 2003", proxy: {proxyType: 'direct'}},
+      //{browserName: "internet explorer", version: '8', platform: "XP", proxy: {proxyType: 'direct'}, 'selenium-version': '2.21.0'},
+      //{browserName: "firefox", version: '10', platform: "Windows 2003", proxy: {proxyType: 'direct'}},
       {browserName: "chrome", version: '', platform: "VISTA", proxy: {proxyType: 'direct'}}
     ]
   }

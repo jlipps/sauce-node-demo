@@ -54,3 +54,48 @@ p.message {
   color: #2EBBE6;
   background: #F7FBFD;
 }
+.fullExcerptModal {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-box-shadow: 4px 2px 5px rgba(60, 60, 60, 0.6);
+  -moz-box-shadow: 4px 2px 5px rgba(60, 60, 60, 0.6);
+  box-shadow: 4px 2px 5px rgba(60, 60, 60, 0.6);
+  overflow: scroll;
+  background: white;
+}
+.excerptTitleCont {
+  clear: both;
+  float: none;
+  height: 25px;
+  border-bottom: 1px solid #ccc;
+}
+.excerptTitle {
+  float: left;
+  width: 350px;
+  font-size: 15px;
+}
+a.excerptClose {
+  float: right;
+  display: inline-block;
+  font-size: 10px;
+}
+.excerpt {
+  padding-top: 10px;
+  font-size: 12px;
+
+}

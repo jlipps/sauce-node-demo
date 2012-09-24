@@ -28,9 +28,9 @@ Post.prototype.validate = function(fn){
 
 
 Post.prototype.update = function(data, fn){
-  this.updatedAt = new Date;
+  this.updatedAt = new Date();
   for (var key in data) {
-    if (undefined != data[key]) {
+    if (undefined !== data[key]) {
       this[key] = data[key];
     }
   }
@@ -39,6 +39,16 @@ Post.prototype.update = function(data, fn){
 
 Post.prototype.destroy = function(fn){
   exports.destroy(this.id, fn);
+};
+
+Post.prototype.excerpt = function() {
+  return this.body.substr(0, 100) + '...';
+};
+
+Post.prototype.body_nl2br = function() {
+  var str = this.body.replace(/\n/, '<br/><br/>', 'm');
+  //return str.replace(/\n/, '<br/>', 'm');
+  return str;
 };
 
 exports.count = function(fn){

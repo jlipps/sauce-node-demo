@@ -1,2 +1,4 @@
 test_confs.js
 *.sublime*
+node_modules/ 
+sauce_connect.log
