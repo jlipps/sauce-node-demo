@@ -1,3 +1,11 @@
 This is a demo app which shows how you can use Wd, Vows.js, and Sauce to have really great test coverage.
 
 Take a look at tests.js and raw_tests.js
+
+To run tests please use vows test runner like here:
+
+Local selenium server:
+ $ vows tests.js --test
+
+Sauce OnDemand (make sure Sauce credentials are set in env):
+ $ vows tests.js --sauce
