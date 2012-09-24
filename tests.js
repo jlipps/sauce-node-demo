@@ -28,8 +28,11 @@ var allConfs = {
     serviceName: 'sauce',
     caps: [
       {browserName: "internet explorer", version: '8', platform: "XP", proxy: {proxyType: 'direct'}, 'selenium-version': '2.21.0'},
-      {browserName: "firefox", version: '10', platform: "Windows 2003", proxy: {proxyType: 'direct'}},
+      {browserName: "firefox", version: '14', platform: "Windows 2003", proxy: {proxyType: 'direct'}},
       {browserName: "chrome", version: '', platform: "VISTA", proxy: {proxyType: 'direct'}}
+      // pre-prep mobile stuff 
+      // {browserName: "ipad", version: '', platform: "Mac 10.6", deviceOrientation: "landscape", proxy: {proxyType: 'direct'}}
+      // {browserName: "android", version: '4', platform: "linux", deviceType: "tablet", proxy: {proxyType: 'direct'}}
     ]
   }
 };
@@ -37,7 +40,7 @@ var allConfs = {
 // load configurations we're using from command line option
 var confs = {};
 _.each(args, function(val, arg) {
-  if (arg != 'argv') {
+  if (typeof allConfs[arg] !== 'undefined') {
     confs[arg] = allConfs[arg];
   }
 });
