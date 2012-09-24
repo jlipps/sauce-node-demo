@@ -1,6 +1,6 @@
 {
   "name": "sauce-node-demo",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "This is a demo app which shows how you can use Wd, Vows.js, and Sauce to have really great test coverage.",
   "main": "index.js",
   "dependencies": {
@@ -24,5 +24,12 @@
     "url": "git://github.com/jlipps/sauce-node-demo.git"
   },
   "author": "Jonathan Lipps <jlipps@gmail.com>",
-  "license": "BSD"
+  "license": "BSD",
+  "subdomain": "saucedemo",
+  "scripts": {
+    "start": "index.js"
+  },
+  "engines": {
+    "node": "~0.8.2"
+  }
 }
