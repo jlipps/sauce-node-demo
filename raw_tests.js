@@ -1,7 +1,7 @@
 var assert = require('assert'),
     _s = require('underscore.string'),
     Post = require('./models/post'),
-    wd = require('../libs/wd');
+    wd = require('wd');
 
 var exports = module.exports = function RawTests() {};
 
