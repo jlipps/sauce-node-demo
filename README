@@ -8,7 +8,7 @@ Run express app before kicking off test suite:
 To run tests please use vows test runner like so:
 
 Local selenium server:
- $ vows tests.js --test
+ $ vows tests.js --local
 
 Sauce OnDemand (make sure Sauce credentials are set in env):
  $ vows tests.js --sauce
