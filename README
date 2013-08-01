@@ -12,3 +12,6 @@ Local selenium server:
 
 Sauce OnDemand (make sure Sauce credentials are set in env):
  $ vows tests.js --sauce
+
+The sample one (make sure Sauce credentials are set in env)
+ $ vows sample.js
